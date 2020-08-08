@@ -32,6 +32,11 @@ public abstract class AbstractEndpoint <T> {
     public T getForObject(Object... uriVariables) throws RestClientException {
         return template.getForObject(url, responseType, uriVariables);
     }
+    @Nullable
+    public T getForObject(@NonNull HttpHeaders httpHeaders, Object... uriVariables) throws RestClientException {
+        val httpEntity = new HttpEntity<>(httpHeaders);
+        return template.exchange(url, HttpMethod.GET, httpEntity, responseType, uriVariables).getBody();
+    }
 
     @Nullable
     public T getForObject(Map<String, ?> uriVariables) throws RestClientException {

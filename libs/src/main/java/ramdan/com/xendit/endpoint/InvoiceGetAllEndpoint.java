@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
  */
 public class InvoiceGetAllEndpoint extends AbstractEndpoint<Invoice[]> {
 
+    public static String ENDPOINT_PATH = "/v2/invoices";
+
     public static Set<String> filterField = new HashSet<>(Arrays.asList(
             "statuses",
             "limit",

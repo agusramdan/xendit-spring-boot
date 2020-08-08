@@ -17,6 +17,8 @@ import java.util.Map;
  *
  */
 public class InvoiceCreateEndpoint extends AbstractEndpoint<Invoice> {
+    public static String ENDPOINT_PATH = "/v2/invoices";
+
     public InvoiceCreateEndpoint() {
         super(Invoice.class);
     }
