@@ -7,12 +7,13 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public class ISO8601TimeFormat {
-    public static DateFormat newInstance(){
+    public static DateFormat newInstance() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
         return format;
     }
-    public static String format(Date date){
+
+    public static String format(Date date) {
         return newInstance().format(date);
     }
 }

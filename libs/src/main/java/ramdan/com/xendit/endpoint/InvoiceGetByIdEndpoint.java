@@ -14,19 +14,20 @@ public class InvoiceGetByIdEndpoint extends AbstractEndpoint<Invoice> {
         super(Invoice.class);
     }
 
-    public Invoice getById(@NonNull String id){
+    public Invoice getById(@NonNull String id) {
         return super.getForObject(id);
     }
 
     /**
      * Get invoice detail by ID
-     * @param id      ID of the invoice to retrieve
+     *
+     * @param id         ID of the invoice to retrieve
      * @param httpHeader
      * @return Invoice
      * @throws XenditException XenditException
      */
-    public Invoice getById(@NonNull String id, @NonNull HttpHeaders httpHeader ) throws XenditException {
-        return super.getForObject(httpHeader,id);
+    public Invoice getById(@NonNull String id, @NonNull HttpHeaders httpHeader) throws XenditException {
+        return super.getForObject(httpHeader, id);
     }
 
 }

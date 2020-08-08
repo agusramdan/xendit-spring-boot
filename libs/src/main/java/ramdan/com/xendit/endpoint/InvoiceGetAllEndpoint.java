@@ -8,9 +8,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+
 /**
  * Get all invoices by given parameters
- *
+ * <p>
  * https://xendit.github.io/apireference/#list-all-invoices
  */
 public class InvoiceGetAllEndpoint extends AbstractEndpoint<Invoice[]> {
@@ -31,7 +32,8 @@ public class InvoiceGetAllEndpoint extends AbstractEndpoint<Invoice[]> {
             "payment_channels",
             "on_demand_link",
             "recurring_payment_id"
-            ));
+    ));
+
     public InvoiceGetAllEndpoint() {
         super(Invoice[].class);
     }
@@ -39,12 +41,12 @@ public class InvoiceGetAllEndpoint extends AbstractEndpoint<Invoice[]> {
     /**
      * Get all invoices by given parameters
      *
-     * @param params  listed here https://xendit.github.io/apireference/#list-all-invoices
+     * @param params listed here https://xendit.github.io/apireference/#list-all-invoices
      * @return Array of invoices
      * @throws XenditException XenditException
      */
-    public Invoice[] getAll(Map<String,Object> params) throws XenditException {
-        if(params!=null && !params.isEmpty()) {
+    public Invoice[] getAll(Map<String, Object> params) throws XenditException {
+        if (params != null && !params.isEmpty()) {
             params = params.entrySet()
                     .stream()
                     .filter(map -> filterField.contains(map.getKey()))
@@ -53,7 +55,7 @@ public class InvoiceGetAllEndpoint extends AbstractEndpoint<Invoice[]> {
         return super.getForObjectParamQuery(params);
     }
 
-        public Invoice[] getAll(){
-            return super.getForObjectParamQuery(null);
-        }
+    public Invoice[] getAll() {
+        return super.getForObjectParamQuery(null);
+    }
 }

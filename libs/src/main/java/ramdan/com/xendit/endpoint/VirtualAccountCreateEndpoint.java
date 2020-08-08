@@ -1,24 +1,15 @@
 package ramdan.com.xendit.endpoint;
 
-import lombok.NonNull;
 import lombok.val;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.util.StringUtils;
-import ramdan.com.xendit.exception.ParamException;
 import ramdan.com.xendit.exception.XenditException;
 import ramdan.com.xendit.model.FixedVirtualAccount;
-import ramdan.com.xendit.model.FixedVirtualAccountParam;
-import ramdan.com.xendit.model.FixedVirtualAccountPayment;
-import ramdan.com.xendit.model.Invoice;
-
-import java.util.Map;
 
 /**
  * Create closed VA with complete object
- *  https://xendit.github.io/apireference/#create-virtual-account
-
+ * https://xendit.github.io/apireference/#create-virtual-account
  */
 public class VirtualAccountCreateEndpoint extends AbstractEndpoint<FixedVirtualAccount> {
 
@@ -30,10 +21,10 @@ public class VirtualAccountCreateEndpoint extends AbstractEndpoint<FixedVirtualA
     }
 
     public FixedVirtualAccount create(Object params) throws XenditException {
-        return create(params,(HttpHeaders) null);
+        return create(params, (HttpHeaders) null);
     }
 
-    public FixedVirtualAccount create(Object param, String userId ){
+    public FixedVirtualAccount create(Object param, String userId) {
         return create(param, newHttpHeadersForUserId(userId));
     }
 
