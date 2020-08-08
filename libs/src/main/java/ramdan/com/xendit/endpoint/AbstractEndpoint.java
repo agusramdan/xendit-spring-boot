@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -93,4 +94,12 @@ public abstract class AbstractEndpoint <T> {
         return template.exchange(url, HttpMethod.POST, httpEntity, responseType, uriVariables);
     }
 
+    protected HttpHeaders newHttpHeadersForUserId(String userId){
+        if(StringUtils.hasText(userId)) {
+            return null;
+        }
+        val httpHeader = new HttpHeaders();
+        httpHeader.add("for-user-id",userId);
+        return httpHeader;
+    }
 }

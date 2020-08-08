@@ -30,33 +30,37 @@ public class InvoiceCreateEndpoint extends AbstractEndpoint<Invoice> {
      * @throws XenditException XenditException
      */
     public Invoice create(Object invoice){
-        return super.postForObject(invoice);
+        return create(invoice,(HttpHeaders) null);
     }
+
     public Invoice create(Map<String,Object> invoice){
-        return super.postForObject(invoice);
+        return create(invoice,(HttpHeaders)null);
     }
 
     public Invoice create(InvoiceParam invoice){
-        return super.postForObject(invoice);
+
+        return create(invoice,(HttpHeaders)null);
     }
 
     public Invoice create(Object invoice,String userId ){
+        HttpHeaders httpHeader =null;
         if(StringUtils.hasText(userId)) {
-            val httpHeader = new HttpHeaders();
+            httpHeader = new HttpHeaders();
             httpHeader.add("for-user-id",userId);
-            return create(invoice,httpHeader);
-        }else {
-            return create(invoice);
         }
+        return create(invoice,httpHeader);
     }
 
     public Invoice create(Object invoice,HttpHeaders httpHeader ){
+
         if(httpHeader != null) {
             val httpEntity = new HttpEntity(invoice,httpHeader);
             val response = super.template.exchange(url, HttpMethod.POST,httpEntity,responseType);
             return response.getBody();
         }else {
-            return create(invoice);
+            return super.postForObject(invoice);
         }
     }
+
+
 }
