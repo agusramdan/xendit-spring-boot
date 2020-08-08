@@ -2,7 +2,7 @@ package ramdan.com.xendit.exception;
 
 import java.util.Map;
 
-public class XenditException extends Exception {
+public class XenditException extends RuntimeException {
     private String code;
     private Map<String, Object> context;
 
