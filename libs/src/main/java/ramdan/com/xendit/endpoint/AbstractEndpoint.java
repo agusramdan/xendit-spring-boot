@@ -4,14 +4,14 @@ import lombok.Setter;
 import lombok.val;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.Map;
 
 public abstract class AbstractEndpoint <T> {
@@ -63,39 +63,29 @@ public abstract class AbstractEndpoint <T> {
     public T postForObject( Object request, Map<String, ?> uriVariables) throws RestClientException {
         return template.postForObject(url, request, responseType, uriVariables);
     }
+    @Nullable
+    public T postForObject(Object request, @NonNull HttpHeaders httpHeaders, Map<String, ?> uriVariables) throws RestClientException {
+        val httpEntity = new HttpEntity<>(request,httpHeaders);
+        return postForEntity(request,httpHeaders, responseType, uriVariables).getBody();
+    }
 
     @Nullable
     public ResponseEntity<T> postForEntity(Object request, Object... uriVariables) throws RestClientException {
         return template.postForEntity(url, request, responseType, uriVariables);
+    }
+    @Nullable
+    public T postForObject(Object request, @NonNull HttpHeaders httpHeaders, Object... uriVariables) throws RestClientException {
+        return postForEntity(request,httpHeaders, responseType, uriVariables).getBody();
     }
 
     public ResponseEntity<T> postForEntity (Object request, Map<String, ?> uriVariables) throws RestClientException {
         return template.postForEntity(url, request, responseType, uriVariables);
     }
 
+    @NonNull
+    public ResponseEntity<T> postForEntity (Object request,@NonNull HttpHeaders httpHeaders, Map<String, ?> uriVariables) throws RestClientException {
+        val httpEntity = new HttpEntity<>(request,httpHeaders);
+        return template.exchange(url, HttpMethod.POST, httpEntity, responseType, uriVariables);
+    }
 
-
-
-
-//    //    public  ResponseEntity<T> getFor(){
-////        return template.getForEntity()
-////    }
-//    protected <T> HttpEntity<T> createHttpRequest(Map<String,String> header, T entity){
-//        val headers = new HttpHeaders();
-//        if(header!=null) {
-//            headers.setAll(header);
-//        }
-//        if(!headers.containsKey("Accept")) {
-//            headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-//        }
-//        return new HttpEntity<T>(entity,headers);
-//    }
-//
-//    protected <T> HttpEntity<T> createHttpRequest(T entity){
-//        return createHttpRequest(null,entity);
-//    }
-//
-//    protected  HttpEntity createHttpRequest(Map header){
-//        return createHttpRequest(header,null);
-//    }
 }

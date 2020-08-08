@@ -2,11 +2,12 @@ package ramdan.com.xendit.endpoint;
 
 import ramdan.com.xendit.exception.XenditException;
 import ramdan.com.xendit.model.Invoice;
-import sun.awt.SunHints;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 /**
  * Get all invoices by given parameters
  *
