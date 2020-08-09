@@ -6,7 +6,7 @@
 
     <groupId>ramdan.com.xendit</groupId>
     <artifactId>xendit-spring-boot-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <scm>
@@ -28,4 +28,25 @@
         <module>libs</module>
         <module>demo</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub agusramdan Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/agusramdan/repo</url>
+        </repository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>github</id>
+            <name>GitHub agusramdan Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/agusramdan/repo</url>
+        </repository>
+    </repositories>
 </project>
