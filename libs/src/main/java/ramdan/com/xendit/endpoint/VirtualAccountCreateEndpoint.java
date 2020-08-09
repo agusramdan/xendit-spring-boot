@@ -11,21 +11,12 @@ import ramdan.com.xendit.model.FixedVirtualAccount;
  * Create closed VA with complete object
  * https://xendit.github.io/apireference/#create-virtual-account
  */
-public class VirtualAccountCreateEndpoint extends AbstractEndpoint<FixedVirtualAccount> {
+public class VirtualAccountCreateEndpoint extends CreateEndpoint<FixedVirtualAccount> {
 
     public static String ENDPOINT_PATH = "/callback_virtual_accounts";
 
-
     public VirtualAccountCreateEndpoint() {
         super(FixedVirtualAccount.class);
-    }
-
-    public FixedVirtualAccount create(Object params) throws XenditException {
-        return create(params, (HttpHeaders) null);
-    }
-
-    public FixedVirtualAccount create(Object param, String userId) {
-        return create(param, newHttpHeadersForUserId(userId));
     }
 
     public FixedVirtualAccount create(Object params, HttpHeaders httpHeader) throws XenditException {
