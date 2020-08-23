@@ -5,7 +5,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.StringUtils;
-import ramdan.com.xendit.model.InvoiceParam;
 
 import java.util.Map;
 
@@ -13,13 +12,13 @@ import java.util.Map;
  * Create invoice with all parameters as HashMap
  * listed here https://xendit.github.io/apireference/#create-invoice.
  */
-public class CreateEndpoint<T> extends AbstractEndpoint<T> {
+public class CreateEndpoint<T, P> extends AbstractEndpoint<T> {
 
     public CreateEndpoint(Class<T> responseType) {
         super(responseType);
     }
 
-    public T create(Object invoice) {
+    public T create(P invoice) {
         return create(invoice, (HttpHeaders) null);
     }
 
@@ -27,10 +26,6 @@ public class CreateEndpoint<T> extends AbstractEndpoint<T> {
         return create(invoice, (HttpHeaders) null);
     }
 
-    public T create(InvoiceParam invoice) {
-
-        return create(invoice, (HttpHeaders) null);
-    }
 
     public T create(Object invoice, String userId) {
         HttpHeaders httpHeader = null;

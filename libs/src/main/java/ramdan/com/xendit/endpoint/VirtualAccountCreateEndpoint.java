@@ -3,14 +3,13 @@ package ramdan.com.xendit.endpoint;
 import org.springframework.http.HttpHeaders;
 import ramdan.com.xendit.exception.XenditException;
 import ramdan.com.xendit.model.FixedVirtualAccount;
-
-import java.util.Map;
+import ramdan.com.xendit.model.FixedVirtualAccountParam;
 
 /**
  * Create closed VA with complete object
  * https://xendit.github.io/apireference/#create-virtual-account
  */
-public class VirtualAccountCreateEndpoint extends CreateEndpoint<FixedVirtualAccount> {
+public class VirtualAccountCreateEndpoint extends CreateEndpoint<FixedVirtualAccount, FixedVirtualAccountParam> {
 
     public static String ENDPOINT_PATH = "/callback_virtual_accounts";
 
@@ -36,6 +35,6 @@ public class VirtualAccountCreateEndpoint extends CreateEndpoint<FixedVirtualAcc
 //        } else {
 //
 //        }
-        return super.postForObject(params, httpHeader, (Map<String, ?>) null);
+        return super.create(params, httpHeader);
     }
 }

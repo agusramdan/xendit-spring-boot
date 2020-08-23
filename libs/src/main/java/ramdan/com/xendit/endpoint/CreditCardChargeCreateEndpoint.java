@@ -1,5 +1,6 @@
 package ramdan.com.xendit.endpoint;
 
+import ramdan.com.xendit.model.CreditCardCharge;
 import ramdan.com.xendit.model.CreditCardChargeParam;
 
 /**
@@ -9,10 +10,10 @@ import ramdan.com.xendit.model.CreditCardChargeParam;
  * <p>
  * https://api.xendit.co/v2/credit_card_tokens
  */
-public class CreditCardChargeCreateEndpoint extends CreateEndpoint<CreditCardChargeParam> {
+public class CreditCardChargeCreateEndpoint extends CreateEndpoint<CreditCardCharge, CreditCardChargeParam> {
     public static String ENDPOINT_PATH = "/credit_card_charges";
 
     public CreditCardChargeCreateEndpoint() {
-        super(CreditCardChargeParam.class);
+        super(CreditCardCharge.class);
     }
 }
