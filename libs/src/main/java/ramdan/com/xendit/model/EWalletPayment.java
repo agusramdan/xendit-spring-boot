@@ -32,9 +32,4 @@ public class EWalletPayment {
     @JsonProperty("status")
     private String status;
 
-    public enum EWalletType {
-        DANA,
-        OVO,
-        LINKAJA
-    }
 }
