@@ -1,11 +1,19 @@
 package ramdan.com.xendit.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY;
 
 @Builder
 @Data
+@JsonInclude(NON_EMPTY)
+@NoArgsConstructor
+@AllArgsConstructor
 public class CardlessCredit {
     @JsonProperty("redirect_url")
     private String redirectUrl;
@@ -21,21 +29,4 @@ public class CardlessCredit {
 
     @JsonProperty("cardless_credit_type")
     private String cardlessCreditType;
-
-    public enum PaymentType {
-        THIRTY_DAYS("30_days"),
-        THREE_MONTHS("3_months"),
-        SIX_MONTHS("6_months"),
-        TWELVE_MONTHS("12_months");
-
-        private String val;
-
-        PaymentType(String val) {
-            this.val = val;
-        }
-
-        public String getVal() {
-            return this.val;
-        }
-    }
 }

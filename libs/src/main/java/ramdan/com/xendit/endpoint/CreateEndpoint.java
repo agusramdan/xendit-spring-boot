@@ -4,6 +4,7 @@ import lombok.val;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 
 import java.util.Map;
@@ -40,7 +41,7 @@ public class CreateEndpoint<T, P> extends AbstractEndpoint<T> {
 
         if (httpHeader != null) {
             val httpEntity = new HttpEntity(invoice, httpHeader);
-            val response = super.template.exchange(url, HttpMethod.POST, httpEntity, responseType);
+            ResponseEntity<T> response = super.template.exchange(url, HttpMethod.POST, httpEntity, responseType);
             return response.getBody();
         } else {
             return super.postForObject(invoice);
