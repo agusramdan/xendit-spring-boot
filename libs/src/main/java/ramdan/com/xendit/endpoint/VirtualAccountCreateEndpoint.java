@@ -1,11 +1,10 @@
 package ramdan.com.xendit.endpoint;
 
-import lombok.val;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import ramdan.com.xendit.exception.XenditException;
 import ramdan.com.xendit.model.FixedVirtualAccount;
+
+import java.util.Map;
 
 /**
  * Create closed VA with complete object
@@ -30,12 +29,13 @@ public class VirtualAccountCreateEndpoint extends CreateEndpoint<FixedVirtualAcc
 //        if (isClosed && params.containsKey("suggested_amount")) {
 //            throw new ParamException("Suggested amount is not supported for closed VA");
 //        }
-        if (httpHeader != null) {
-            val httpEntity = new HttpEntity(params, httpHeader);
-            val response = super.template.exchange(url, HttpMethod.POST, httpEntity, responseType);
-            return response.getBody();
-        } else {
-            return super.postForObject(params);
-        }
+//        if (httpHeader != null) {
+//            val httpEntity = new HttpEntity(params, httpHeader);
+//            val response = super.template.exchange(url, HttpMethod.POST, httpEntity, responseType);
+//            return response.getBody();
+//        } else {
+//
+//        }
+        return super.postForObject(params, httpHeader, (Map<String, ?>) null);
     }
 }
