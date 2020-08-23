@@ -15,7 +15,7 @@ public class InvoiceGetByIdEndpoint extends AbstractEndpoint<Invoice> {
     }
 
     public Invoice getById(@NonNull String id) {
-        return super.getForObject(id);
+        return getById(id, null);
     }
 
     /**
@@ -26,7 +26,7 @@ public class InvoiceGetByIdEndpoint extends AbstractEndpoint<Invoice> {
      * @return Invoice
      * @throws XenditException XenditException
      */
-    public Invoice getById(@NonNull String id, @NonNull HttpHeaders httpHeader) throws XenditException {
+    public Invoice getById(@NonNull String id, HttpHeaders httpHeader) throws XenditException {
         return super.getForObject(httpHeader, id);
     }
 

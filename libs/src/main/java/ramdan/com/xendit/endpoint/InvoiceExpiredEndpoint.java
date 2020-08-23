@@ -24,7 +24,7 @@ public class InvoiceExpiredEndpoint extends AbstractEndpoint<Invoice> {
      * @throws XenditException XenditException
      */
     public Invoice expired(@NonNull String invoice_id) {
-        return super.postForObject(null, invoice_id);
+        return expired(invoice_id, null);
     }
 
     /**
@@ -36,10 +36,6 @@ public class InvoiceExpiredEndpoint extends AbstractEndpoint<Invoice> {
      * @throws XenditException XenditException
      */
     public Invoice expired(@NonNull String invoice_id, HttpHeaders httpHeaders) {
-        if (httpHeaders != null) {
-            return super.postForObject(null, httpHeaders, invoice_id);
-        } else {
-            return expired(invoice_id);
-        }
+        return super.postForObject(null, httpHeaders, invoice_id);
     }
 }

@@ -56,6 +56,6 @@ public class InvoiceGetAllEndpoint extends AbstractEndpoint<Invoice[]> {
     }
 
     public Invoice[] getAll() {
-        return super.getForObjectParamQuery(null);
+        return getAll(null);
     }
 }
