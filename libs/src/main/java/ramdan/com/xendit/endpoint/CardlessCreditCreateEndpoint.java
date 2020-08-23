@@ -4,7 +4,10 @@ import ramdan.com.xendit.model.CardlessCredit;
 import ramdan.com.xendit.model.CardlessCreditParam;
 
 /**
- * Create invoice with all parameters as HashMap
+ * Create Payment / Generate Checkout URL
+ *
+ * Use API key permission Money-in Write to perform this request
+ *
  * listed here https://xendit.github.io/apireference/#cardless-credit
  */
 public class CardlessCreditCreateEndpoint extends CreateEndpoint<CardlessCredit, CardlessCreditParam> {
