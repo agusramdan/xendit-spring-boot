@@ -1,6 +1,7 @@
 package ramdan.com.xendit.endpoint;
 
 import lombok.val;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestTemplate;
 import ramdan.com.xendit.model.EWalletOvo;
@@ -9,6 +10,7 @@ import ramdan.com.xendit.model.EWalletType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Disabled
 public class EWalletPaymentCreateEndpointTest {
     @Test
     public void buildOvo() {
