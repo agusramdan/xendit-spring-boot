@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Create Invoice</title>
+    <style type="text/css">
+    label.field {
+        display: inline-block;
+        width: 245px;
+        margin: 5px;
+        text-align: right;
+    }
+    div.form {
+        width: 600px;
+    }
+    label.error {
+        display: inline-block;
+        width: 500px;
+        text-align: right;
+    }
+    input[type=text], input[type=password], select {
+        display: inline-block;
+        width: 250px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h1>Create Invoice</h1>
+    <form action="#" th:action="@{/invoice/create}" method="post"
+          th:object="${data}">
+        <input type="hidden" th:field="*{id}" >
+        <div class="form">
+
+            <label class="field">Description:</label>
+            <input type="text" th:field="*{description}" />
+            <br />
+            <label class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error </label>
+            <br th:if="${#fields.hasErrors('description')}"/>
+
+            <label class="field">E-mail:</label>
+            <input type="text" th:field="*{payerEmail}" />
+            <br />
+            <label class="error" th:if="${#fields.hasErrors('payerEmail')}" th:errors="*{payerEmail}">Email Error </label>
+            <br th:if="${#fields.hasErrors('payerEmail')}"/>
+
+            <label class="field">Should Send Email:</label>
+            <input type="checkbox" th:field="*{shouldSendEmail}" />
+            <br />
+
+            <label class="field">Amount :</label>
+            <input type="text" th:field="*{amount}" />
+            <br />
+            <label class="error"  th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Licence Error </label>
+            <br th:if="${#fields.hasErrors('amount')}"/>
+
+            <button type="submit">Create Invoice</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

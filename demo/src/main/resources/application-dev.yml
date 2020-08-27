@@ -1,0 +1,20 @@
+# Application Properties
+spring:
+  application:
+    name: Liquibase Demo
+    # Jpa Properties
+    datasource:
+      url: jdbc:mysql://mysql:3306/sampledb?serverTimezone=UTC
+      username: root
+      password: password
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  # Liquibase properties
+  liquibase:
+    enabled: false
+
+## Server Properties
+server:
+  port: 8081

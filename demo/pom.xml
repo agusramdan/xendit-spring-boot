@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>ramdan.com.xendit</groupId>
 	<artifactId>xendit-spring-boot-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.8.2.3.2-SNAPSHOT</version>
 	<name>xendit-spring-boot-demo</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -188,7 +188,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub agusramdan Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/agusramdan/repo</url>
+			<url>https://maven.pkg.github.com/agusramdan/xendit-spring-boot</url>
 		</repository>
 	</distributionManagement>
 	<repositories>
@@ -201,7 +201,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub agusramdan Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/agusramdan/repo</url>
+			<url>https://maven.pkg.github.com/agusramdan/xendit-spring-boot</url>
 		</repository>
 	</repositories>
 </project>

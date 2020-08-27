@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Create Invoice</title>
+    <style type="text/css">
+    span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h2>Create Invoice Succeeded!</h2>
+    <span>ID:</span><span th:text="${data.description}"></span><br/>
+    <span>Description:</span><span th:text="${data.description}"></span><br/>
+    <span>E-mail:</span><span th:text="${data.payerEmail}"></span><br/>
+    <span>Invoice URL :</span>  <a th:href="${data.invoiceUrl}"> <span th:text="${invoice_url}"></span> </a><br/>
+</div>
+</body>
+</html>
